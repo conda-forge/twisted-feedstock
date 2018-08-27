@@ -1,20 +1,15 @@
-{% set name = "Twisted" %}
 {% set version = "18.7.0" %}
-{% set file_ext = "tar.bz2" %}
-{% set hash_type = "sha256" %}
-{% set hash_value = "95ae985716e8107816d8d0df249d558dbaabb677987cc2ace45272c166b267e4" %}
 
 package:
-  name: {{ name|lower }}
+  name: twisted
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.{{ file_ext }}
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ file_ext }}
-  {{ hash_type }}: {{ hash_value }}
+  url: https://pypi.io/packages/source/T/Twisted/Twisted-{{ version }}.tar.bz2
+  sha256: 95ae985716e8107816d8d0df249d558dbaabb677987cc2ace45272c166b267e4
 
 build:
-  number: 0
+  number: 1
   entry_points:
     - ckeygen = twisted.conch.scripts.ckeygen:run
     - cftp = twisted.conch.scripts.cftp:run
@@ -25,7 +20,7 @@ build:
     - trial = twisted.scripts.trial:run
     - twist = twisted.application.twist._twist:Twist.main
     - twistd = twisted.scripts.twistd:run
-  script: python -m pip install --no-deps --ignore-installed . --verbose
+  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
 
 requirements:
   build:
@@ -56,8 +51,8 @@ requirements:
     # Moved all the crypto and tls stuff under 'run'
     - soappy
     - pyserial >=3.0
-    - pyobjc-core  # [osx-64]
-    - pyobjc-framework-cococa      # [osx-64]
+    - pyobjc-core  # [osx]
+    - pyobjc-framework-cocoa  # [osx]
     - h2 >=3.0,<4.0
     - priority >=1.1.0,<2.0
 
@@ -161,3 +156,4 @@ about:
 extra:
   recipe-maintainers:
     - nehaljwani
+    - ocefpaf
