@@ -9,7 +9,7 @@ source:
   sha256: 1708e1928ae84ec9d3ebab0d427e20e1e38ff721b15bbced476d047d4a43abbe
 
 build:
-  number: 0
+  number: 1
   entry_points:
     - ckeygen = twisted.conch.scripts.ckeygen:run
     - cftp = twisted.conch.scripts.cftp:run
@@ -53,7 +53,7 @@ requirements:
     # tls deps
     - idna >=0.6,!=2.3
     - pyopenssl >=16.0.0
-    - service_identity
+    - service_identity >=18.1.0
   run_constrained:
     # Moved all the crypto and tls stuff under 'run'
     - soappy  # [py2k and win]
