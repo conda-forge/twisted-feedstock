@@ -1,4 +1,4 @@
-{% set version = "19.2.0" %}
+{% set version = "19.2.1" %}
 
 package:
   name: twisted
@@ -6,10 +6,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/T/Twisted/Twisted-{{ version }}.tar.bz2
-  sha256: 1708e1928ae84ec9d3ebab0d427e20e1e38ff721b15bbced476d047d4a43abbe
+  sha256: fa2c04c2d68a9be7fc3975ba4947f653a57a656776f24be58ff0fe4b9aaf3e52
 
 build:
-  number: 1
+  number: 0
   entry_points:
     - ckeygen = twisted.conch.scripts.ckeygen:run
     - cftp = twisted.conch.scripts.cftp:run
