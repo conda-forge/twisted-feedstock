@@ -1,4 +1,4 @@
-{% set version = "19.2.1" %}
+{% set version = "19.7.0" %}
 
 package:
   name: twisted
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/T/Twisted/Twisted-{{ version }}.tar.bz2
-  sha256: fa2c04c2d68a9be7fc3975ba4947f653a57a656776f24be58ff0fe4b9aaf3e52
+  sha256: d5db93026568f60cacdc0615fcd21d46f694a6bfad0ef3ff53cde2b4bb85a39d
 
 build:
   number: 0
@@ -37,17 +37,17 @@ requirements:
     - incremental >=16.10.1
   run:
     - python
+    - pip
     - attrs >=17.4.0
     - automat >=0.3.0
     - constantly >=15.1
-    - incremental >=16.10.1
     - hyperlink >=17.1.1
+    - incremental >=16.10.1
     - pyhamcrest >=1.9.0
     - zope.interface >=4.4.2
     - pywin32  # [win]
-    - bcrypt
     # conch deps
-    - appdirs >=1.4.0
+    - bcrypt
     - cryptography >=1.5
     - pyasn1
     # tls deps
@@ -55,6 +55,14 @@ requirements:
     - pyopenssl >=16.0.0
     - service_identity >=18.1.0
   run_constrained:
+    - python
+    - attrs >=17.4.0
+    - automat >=0.3.0
+    - constantly >=15.1
+    - hyperlink >=17.1.1
+    - incremental >=16.10.1
+    - pyhamcrest >=1.9.0
+    - zope.interface >=4.4.2
     # Moved all the crypto and tls stuff under 'run'
     - soappy  # [py2k and win]
     - pyserial >=3.0
@@ -68,79 +76,52 @@ test:
   imports:
     - twisted
     - twisted._threads
-    - twisted._threads.test
     - twisted.application
     - twisted.application.runner
-    - twisted.application.runner.test
-    - twisted.application.test
     - twisted.application.twist
-    - twisted.application.twist.test
     - twisted.conch
     - twisted.conch.client
     - twisted.conch.insults
     - twisted.conch.openssh_compat
     - twisted.conch.scripts
     - twisted.conch.ssh
-    - twisted.conch.test
     - twisted.conch.ui
     - twisted.cred
-    - twisted.cred.test
     - twisted.enterprise
     - twisted.internet
     - twisted.internet.iocpreactor  # [win]
-    - twisted.internet.iocpreactor.iocpsupport  # [win]
-    - twisted.internet.test
     - twisted.logger
-    - twisted.logger.test
     - twisted.mail
-    - twisted.mail.scripts  # [py2k]
-    - twisted.mail.test
+    - twisted.mail.scripts
     - twisted.names
-    - twisted.names.test
-    - twisted.news          # [py2k]
-    - twisted.news.test     # [py2k]
+    - twisted.news  # [py2k]
     - twisted.pair
-    - twisted.pair.test
     - twisted.persisted
-    - twisted.persisted.test
     - twisted.plugins
     - twisted.positioning
-    - twisted.positioning.test
     - twisted.protocols
     - twisted.protocols.haproxy
-    - twisted.protocols.haproxy.test
-    - twisted.protocols.mice  # [py2k]
-    - twisted.protocols.test
     - twisted.python
-    - twisted.python.test
-    - twisted.python.sendmsg  # [unix and py2k]
     - twisted.runner
-    - twisted.runner.test
     - twisted.scripts
-    - twisted.scripts.test
     - twisted.spread
-    - twisted.spread.test
     - twisted.tap
-    - twisted.test
-    - twisted.test.raiser
     - twisted.trial
     - twisted.trial._dist
-    - twisted.trial._dist.test
-    - twisted.trial.test
     - twisted.web
     - twisted.web._auth
-    - twisted.web.test
     - twisted.words
     - twisted.words.im
     - twisted.words.protocols
     - twisted.words.protocols.jabber
-    - twisted.words.test
     - twisted.words.xish
   commands:
     - ckeygen --help
     # https://twistedmatrix.com/trac/ticket/1679
-    - cftp --help  # [unix]
-    - conch --help  # [unix]
+    - cftp --help  # [not win]
+    - conch --help  # [not win]
+    # not sure how to test this one
+    # - mailmail --help
     - pyhtmlizer --help
     # Requires $DISPLAY (xvfb-run?)
     - tkconch --help  # [win]
@@ -153,7 +134,7 @@ about:
   license: MIT
   license_file: LICENSE
   license_family: MIT
-  summary: event-driven networking engine
+  summary: "An asynchronous networking framework written in Python"
   description: |
     Twisted is an event-driven networking engine written in Python.
     It runs on Python 2 and an ever growing subset also works with Python 3.
