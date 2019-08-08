@@ -9,7 +9,7 @@ source:
   sha256: d5db93026568f60cacdc0615fcd21d46f694a6bfad0ef3ff53cde2b4bb85a39d
 
 build:
-  number: 0
+  number: 1
   entry_points:
     - ckeygen = twisted.conch.scripts.ckeygen:run
     - cftp = twisted.conch.scripts.cftp:run
@@ -55,14 +55,6 @@ requirements:
     - pyopenssl >=16.0.0
     - service_identity >=18.1.0
   run_constrained:
-    - python
-    - attrs >=17.4.0
-    - automat >=0.3.0
-    - constantly >=15.1
-    - hyperlink >=17.1.1
-    - incremental >=16.10.1
-    - pyhamcrest >=1.9.0
-    - zope.interface >=4.4.2
     # Moved all the crypto and tls stuff under 'run'
     - soappy  # [py2k and win]
     - pyserial >=3.0
