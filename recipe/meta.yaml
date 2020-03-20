@@ -1,4 +1,4 @@
-{% set version = "19.10.0" %}
+{% set version = "20.3.0" %}
 
 package:
   name: twisted
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/T/Twisted/Twisted-{{ version }}.tar.bz2
-  sha256: 7394ba7f272ae722a74f3d969dcf599bc4ef093bc392038748a490f1724a515d
+  sha256: d72c55b5d56e176563b91d11952d13b01af8725c623e498db5507b6614fc1e10
 
 build:
   number: 0
@@ -25,7 +25,7 @@ build:
     - pushd src\twisted\internet\iocpreactor\iocpsupport  # [win]
     - cythonize -a -i iocpsupport.pyx  # [win]
     - popd  # [win]
-    - "{{ PYTHON }} -m pip install . --no-deps -vv"
+    - {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   build:
@@ -126,7 +126,7 @@ about:
   license: MIT
   license_file: LICENSE
   license_family: MIT
-  summary: "An asynchronous networking framework written in Python"
+  summary: An asynchronous networking framework written in Python
   description: |
     Twisted is an event-driven networking engine written in Python.
     It runs on Python 2 and an ever growing subset also works with Python 3.
