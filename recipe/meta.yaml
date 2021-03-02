@@ -1,15 +1,15 @@
-{% set version = "20.3.0" %}
+{% set version = "21.2.0" %}
 
 package:
   name: twisted
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/T/Twisted/Twisted-{{ version }}.tar.bz2
-  sha256: d72c55b5d56e176563b91d11952d13b01af8725c623e498db5507b6614fc1e10
+  url: https://pypi.io/packages/source/T/Twisted/Twisted-{{ version }}.tar.gz
+  sha256: 77544a8945cf69b98d2946689bbe0c75de7d145cdf11f391dd487eae8fc95a12
 
 build:
-  number: 2
+  number: 0
   entry_points:
     - ckeygen = twisted.conch.scripts.ckeygen:run
     - cftp = twisted.conch.scripts.cftp:run
@@ -44,6 +44,7 @@ requirements:
     - hyperlink >=17.1.1
     - incremental >=16.10.1
     - pyhamcrest >=1.9.0
+    - twisted-iocpsupport >=1.0.1,<1.1.0a0  # [win]
     - zope.interface >=4.4.2
     - pywin32  # [win]
     # conch deps
