@@ -1,4 +1,4 @@
-{% set version = "21.2.0" %}
+{% set version = "21.7.0" %}
 
 package:
   name: twisted
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/T/Twisted/Twisted-{{ version }}.tar.gz
-  sha256: 77544a8945cf69b98d2946689bbe0c75de7d145cdf11f391dd487eae8fc95a12
+  sha256: 2cd652542463277378b0d349f47c62f20d9306e57d1247baabd6d1d38a109006
 
 build:
   number: 0
