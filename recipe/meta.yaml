@@ -41,26 +41,26 @@ requirements:
   run:
     - python
     - pip
-    - attrs >=17.4.0
-    - automat >=0.3.0
+    - attrs >=19.2.0
+    - automat >=0.8.0
     - constantly >=15.1
     - hyperlink >=17.1.1
-    - incremental >=16.10.1
-    - pyhamcrest >=1.9.0
-    - twisted-iocpsupport >=1.0.1,<1.1.0a0  # [win]
+    - incremental >=21.3.0
+    - twisted-iocpsupport >=1.0.0,<1.1.0a0  # [win]
+    - typing_extensions >= 3.6.5
     - zope.interface >=4.4.2
     - pywin32  # [win]
     # conch deps
-    - bcrypt
-    - cryptography >=1.5
+    - bcrypt >=3.0.0
+    - cryptography >=2.6
     - pyasn1
+    - appdirs >=1.4.0
     # tls deps
-    - idna >=0.6,!=2.3
+    - idna >=2.4
     - pyopenssl >=16.0.0
     - service_identity >=18.1.0
   run_constrained:
     # Moved all the crypto and tls stuff under 'run'
-    - soappy  # [py2k and win]
     - pyserial >=3.0
     - pyobjc-core  # [osx]
     - pyobjc-framework-cocoa  # [osx]
@@ -124,6 +124,8 @@ test:
     - trial --help
     - twist --help
     - twistd --help
+  requires:
+    - pyhamcrest >=1.9.0
 
 about:
   home: http://twistedmatrix.com/
