@@ -1,4 +1,4 @@
-{% set version = "21.2.0" %}
+{% set version = "21.7.0" %}
 
 package:
   name: twisted
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/T/Twisted/Twisted-{{ version }}.tar.gz
-  sha256: 77544a8945cf69b98d2946689bbe0c75de7d145cdf11f391dd487eae8fc95a12
+  sha256: 2cd652542463277378b0d349f47c62f20d9306e57d1247baabd6d1d38a109006
 
 build:
   number: 0
@@ -41,26 +41,26 @@ requirements:
   run:
     - python
     - pip
-    - attrs >=17.4.0
-    - automat >=0.3.0
+    - attrs >=19.2.0
+    - automat >=0.8.0
     - constantly >=15.1
     - hyperlink >=17.1.1
-    - incremental >=16.10.1
-    - pyhamcrest >=1.9.0
-    - twisted-iocpsupport >=1.0.1,<1.1.0a0  # [win]
+    - incremental >=21.3.0
+    - twisted-iocpsupport >=1.0.0,<1.1.0a0  # [win]
+    - typing-extensions >=3.6.5
     - zope.interface >=4.4.2
     - pywin32  # [win]
     # conch deps
-    - bcrypt
-    - cryptography >=1.5
+    - bcrypt >=3.0.0
+    - cryptography >=2.6
     - pyasn1
+    - appdirs >=1.4.0
     # tls deps
-    - idna >=0.6,!=2.3
+    - idna >=2.4
     - pyopenssl >=16.0.0
     - service_identity >=18.1.0
   run_constrained:
     # Moved all the crypto and tls stuff under 'run'
-    - soappy  # [py2k and win]
     - pyserial >=3.0
     - pyobjc-core  # [osx]
     - pyobjc-framework-cocoa  # [osx]
@@ -124,6 +124,8 @@ test:
     - trial --help
     - twist --help
     - twistd --help
+  requires:
+    - pyhamcrest >=1.9.0
 
 about:
   home: http://twistedmatrix.com/
