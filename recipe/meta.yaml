@@ -9,7 +9,7 @@ source:
   sha256: 2cd652542463277378b0d349f47c62f20d9306e57d1247baabd6d1d38a109006
 
 build:
-  number: 0
+  number: 1
   entry_points:
     - ckeygen = twisted.conch.scripts.ckeygen:run
     - cftp = twisted.conch.scripts.cftp:run
