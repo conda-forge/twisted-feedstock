@@ -46,7 +46,7 @@ requirements:
     - constantly >=15.1
     - hyperlink >=17.1.1
     - incremental >=21.3.0
-    - twisted-iocpsupport >=1.0.0,<1.1.0a0  # [win]
+    - twisted-iocpsupport >=1.0.2,<2  # [win]
     - typing-extensions >=3.6.5
     - zope.interface >=4.4.2
     - pywin32  # [win]
