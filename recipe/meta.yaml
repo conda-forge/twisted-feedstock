@@ -9,7 +9,7 @@ source:
   sha256: a047990f57dfae1e0bd2b7df2526d4f16dcdc843774dc108b78c52f2a5f13680
 
 build:
-  number: 0
+  number: 1
   entry_points:
     - ckeygen = twisted.conch.scripts.ckeygen:run
     - cftp = twisted.conch.scripts.cftp:run
@@ -65,7 +65,7 @@ requirements:
     - pyobjc-core  # [osx]
     - pyobjc-framework-cocoa  # [osx]
     # - pyobjc-framework-CFNetwork  # [osx]
-    - h2 >=3.0,<4.0
+    - h2 >=3.0,<5.0
     - priority >=1.1.0,<2.0
 
 test:
