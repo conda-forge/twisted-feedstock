@@ -37,7 +37,7 @@ requirements:
     - python
     - pip
     - cython
-    - incremental >=16.10.1
+    - incremental >=21.3.0
   run:
     - python
     - pip
