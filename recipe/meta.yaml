@@ -1,12 +1,12 @@
-{% set version = "22.10.0" %}
+{% set version = "23.8.0" %}
 
 package:
   name: twisted
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/T/Twisted/Twisted-{{ version }}.tar.gz
-  sha256: 32acbd40a94f5f46e7b42c109bfae2b302250945561783a8b7a059048f2d4d31
+  url: https://pypi.io/packages/source/T/Twisted/twisted-{{ version }}.tar.gz
+  sha256: 3c73360add17336a622c0d811c2a2ce29866b6e59b1125fd6509b17252098a24
 
 build:
   number: 0
