@@ -37,6 +37,8 @@ requirements:
     - python
     - pip
     - cython
+    - hatchling
+    - hatch-fancy-pypi-readme
     - incremental >=21.3.0
   run:
     - python
