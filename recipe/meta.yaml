@@ -142,5 +142,6 @@ about:
 
 extra:
   recipe-maintainers:
+    - akrherz
     - nehaljwani
     - ocefpaf
