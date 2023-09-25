@@ -10,6 +10,8 @@ source:
 
 build:
   number: 2
+  # pywin32 pypy needs help conda-forge/pywin32-feedstock#49
+  skip: true  # [win and python_impl == 'pypy']
   entry_points:
     - ckeygen = twisted.conch.scripts.ckeygen:run
     - cftp = twisted.conch.scripts.cftp:run
