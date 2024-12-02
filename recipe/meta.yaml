@@ -60,7 +60,7 @@ requirements:
     - appdirs >=1.4.0
     # tls deps
     - idna >=2.4
-    - pyopenssl >=16.0.0
+    - pyopenssl >=23.2.0
     - service_identity >=18.1.0
   run_constrained:
     # Moved all the crypto and tls stuff under 'run'
