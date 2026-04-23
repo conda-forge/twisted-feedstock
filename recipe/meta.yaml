@@ -1,4 +1,5 @@
 {% set version = "25.5.0" %}
+{% set python_min = "3.10" %}
 
 package:
   name: twisted
@@ -10,6 +11,7 @@ source:
 
 build:
   number: 2
+  noarch: python   # [use_noarch]
   entry_points:
     - ckeygen = twisted.conch.scripts.ckeygen:run
     - cftp = twisted.conch.scripts.cftp:run
@@ -21,10 +23,6 @@ build:
     - twist = twisted.application.twist._twist:Twist.main
     - twistd = twisted.scripts.twistd:run
   script:
-    - del src\twisted\internet\iocpreactor\iocpsupport\iocpsupport.c  # [win]
-    - pushd src\twisted\internet\iocpreactor\iocpsupport  # [win]
-    - cythonize -a -i iocpsupport.pyx  # [win]
-    - popd  # [win]
     - {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
@@ -35,14 +33,16 @@ requirements:
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
   host:
-    - python
+    - python                        # [not use_noarch]
+    - python {{ python_min }}.*     # [use_noarch]
     - pip
     - cython
     - hatchling
     - hatch-fancy-pypi-readme
     - incremental >=21.3.0
   run:
-    - python
+    - python                        # [not use_noarch]
+    - python {{ python_min }}.*     # [use_noarch]
     - attrs >=22.2.0
     - automat >=24.8.0
     - constantly >=15.1
@@ -127,6 +127,8 @@ test:
     - twistd --help
   requires:
     - pyhamcrest >=1.9.0
+    - pip
+    - python {{ python_min }}.*     # [use_noarch]
 
 about:
   home: http://twistedmatrix.com/
