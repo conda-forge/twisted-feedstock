@@ -15,3 +15,6 @@ noarch_platforms:
   - linux_64
   - win_64
   - osx_64
+linter:
+  skip:
+    - lint_noarch_selectors
