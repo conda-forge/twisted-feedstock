@@ -11,7 +11,7 @@ source:
 
 build:
   number: 2
-  noarch: python   # [use_noarch]
+  noarch: python
   entry_points:
     - ckeygen = twisted.conch.scripts.ckeygen:run
     - cftp = twisted.conch.scripts.cftp:run
@@ -33,16 +33,14 @@ requirements:
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
   host:
-    - python                        # [not use_noarch]
-    - python {{ python_min }}.*     # [use_noarch]
+    - python {{ python_min }}.*
     - pip
     - cython
     - hatchling
     - hatch-fancy-pypi-readme
     - incremental >=21.3.0
   run:
-    - python                        # [not use_noarch]
-    - python {{ python_min }}.*     # [use_noarch]
+    - python >={{ python_min }}.*
     - attrs >=22.2.0
     - automat >=24.8.0
     - constantly >=15.1
@@ -128,7 +126,7 @@ test:
   requires:
     - pyhamcrest >=1.9.0
     - pip
-    - python {{ python_min }}.*     # [use_noarch]
+    - python {{ python_min }}.*
 
 about:
   home: http://twistedmatrix.com/
