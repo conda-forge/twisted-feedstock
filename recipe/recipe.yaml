@@ -1,7 +1,7 @@
 schema_version: 1
 
 context:
-  version: "26.4.0"
+  version: "26.10.0"
 
 package:
   name: twisted
@@ -9,7 +9,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/T/Twisted/twisted-${{ version }}.tar.gz
-  sha256: dbfd0fe1ee409d0243fdd7a6a6ff14f4948cec1fd78e0376291f805e1501fae9
+  sha256: 5f0355403e507fc23ceea85e9dbb4bc59335aabde41dd324e8b8cea180dd38de
 
 build:
   number: 0
